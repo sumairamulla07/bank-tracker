@@ -16,3 +16,25 @@ for sms in sms_examples:
     result = parse_sms(sms)
     print(f"✅ Result: {result}")
     print("-" * 60)
+
+
+from categorizer import categorize_merchant
+
+print("\n🏷️ Testing Categorizer...\n")
+
+test_merchants = [
+    "zomato",
+    "amazon",
+    "irctc",
+    "bigbasket",
+    "netflix",
+    "airtel",
+    "apollo",
+    "byju",
+    "randomshop",
+    "friend"
+]
+
+for merchant in test_merchants:
+    category = categorize_merchant(merchant)
+    print(f"🏪 {merchant} → 🏷️ {category}")
