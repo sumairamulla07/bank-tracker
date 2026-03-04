@@ -1,10 +1,19 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sms_parser import parse_sms
 from categorizer import categorize_merchant
 from datetime import datetime
 
 app = FastAPI()
+
+# Add this - allows web app to talk to backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class SMSRequest(BaseModel):
     sms_text: str
